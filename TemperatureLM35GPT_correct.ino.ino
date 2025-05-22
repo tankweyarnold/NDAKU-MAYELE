@@ -1,7 +1,7 @@
 #include <LiquidCrystal.h>
 #include <Wire.h>
 
-// LCD pins
+// AWA EYALI BA PIN YA LCD
 #define RS 12
 #define E 11
 #define D4 5
@@ -11,7 +11,7 @@
 #define COLS 16
 #define ROWS 2
 
-// Other hardware connections
+// AWA BA PIN YA BA MATOS MUSUSU
 #define sensorPin A0
 #define motorPin 9
 #define threshold 25
@@ -29,21 +29,21 @@ void setup() {
 }
 
 void loop() {
-  // Welcome message
+  // MESSAGI YA BOYEYI MALAMU
   lcd.clear();
   lcd.print("ARITAGROUP");
   lcd.setCursor(0, 1);
   lcd.print("MAYELE NDAKU");
   delay(DELAY3);
   
-  // Displaying temperature header
+  // AWA MESSAGI YA KOLAKISA TEMPERATURI
   lcd.clear();
   lcd.print("ARITAGROUP");
   lcd.setCursor(0, 1);
   lcd.print("Temperature");
   delay(DELAY2);
 
-  // Reading and averaging temperature
+  // AWA MESSAGI YA KOTAGA CAPTERI NA KO CALICULER TEMPERATURI
   float resultTemp = 0.0;
   for (int i = 0; i < cycle; i++) {
     int analogValue = analogRead(sensorPin);
@@ -53,7 +53,7 @@ void loop() {
   }
   resultTemp = resultTemp / cycle;
 
-  // Displaying temperature
+  // AWA KOLAKISA TEMPERATURI OYO TO CALUKILER
   lcd.clear();
   lcd.print("Temp: ");
   lcd.print(resultTemp, 1); // Display 1 decimal point
@@ -61,7 +61,7 @@ void loop() {
   lcd.print("C");
   lcd.setCursor(0, 1);
 
-  // Fan control with hysteresis
+  // AWA TOZO COTOLER EPUPELA FAN NA hysteresis
   lcd.print("Moteur: ");
   if (resultTemp > (threshold + hysteresis)) {
     digitalWrite(motorPin, HIGH);
